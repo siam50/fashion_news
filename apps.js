@@ -47,17 +47,44 @@ const displayCategoryId = (datas) => {
                             <span class="text-primary me-5"> ${perId.author.name ? perId.author.name : 'No Author'} </span>
                             <span> Views: ${perId.total_view ? perId.total_view : 'No Views'} </span>
                             </div>
-                            <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <button onclick="modalLoadData('${perId._id}')" type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 Show Details
                             </button>
                         </div>
                     </div>
         `
         cardContainer.appendChild(div);
-        console.log(perId)
+        // console.log(perId)
         startSpinner(false);
     });
 
+}
+
+// Modal Part<<<<<<<<<<<<<<
+const modalLoadData = (details) => {
+    const url = `https://openapi.programming-hero.com/api/news/${details}`;
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displayModalData(data.data[0]))
+
+}
+
+const displayModalData = (detailData) => {
+    console.log(detailData)
+    const modalTitle = document.getElementById('exampleModalLabel');
+    modalTitle.innerText = detailData.title;
+    const modalBody = document.getElementById('modal-body');
+    modalBody.innerHTML = `
+    <img src="${detailData.image_url}" class="card-img-top" alt="...">
+    <p>${detailData.details}</p>
+    <h6>Athor Information:</h6>
+    <div><img src="${detailData.author.img}" class="card-img-top w-25 h-25 rounded-circle me-3" alt="...">
+         <span class="text-primary me-5"> ${detailData.author.name ? detailData.author.name : 'No data found'} </span>
+         <span> Views: ${detailData.total_view ? detailData.total_view : 'No data found'} </span>
+     </div>
+     <h6 class="mt-2 d-inline me-2">Published Date:</h6>
+     <span>${detailData.author.published_date}</span>
+    `
 }
 
 // Spinner Part<<<<<<<<<<<<<<<
