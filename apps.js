@@ -32,6 +32,21 @@ const loadCategoryId = (data) => {
 }
 
 const displayCategoryId = (datas) => {
+    const categoryFound = document.getElementById('found-category');
+    if (datas.length === 0) {
+        categoryFound.classList.remove('d-none')
+        categoryFound.innerHTML = `
+        <h2>No Item Found For Category Entertainments</h2>
+        `
+        startSpinner(false);
+    }
+    else {
+        categoryFound.classList.remove('d-none')
+        categoryFound.innerHTML = `
+        <h2>${datas.length} Items Found For Category Entertainments</h2>
+        `
+    }
+    console.log(datas.length)
     const cardContainer = document.getElementById('card-container');
     cardContainer.innerHTML = ``;
     datas.forEach(perId => {
@@ -70,7 +85,7 @@ const modalLoadData = (details) => {
 }
 
 const displayModalData = (detailData) => {
-    console.log(detailData)
+    // console.log(detailData)
     const modalTitle = document.getElementById('exampleModalLabel');
     modalTitle.innerText = detailData.title;
     const modalBody = document.getElementById('modal-body');
