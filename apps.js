@@ -62,13 +62,13 @@ const displayCategoryId = (datas) => {
                         <div class="card-body">
                             <h5 class="card-title">${perId.title}</h5>
                             <p class="card-text">${perId.details.slice(0, 100)} .....</p>
-                            <div><img src="${perId.author.img}" class="card-img-top w-25 h-25 rounded-circle me-3" alt="...">
-                            <span class="text-primary me-2 me-md-5"> ${perId.author.name ? perId.author.name : 'No Author'} </span>
-                            <span> Views: ${perId.total_view ? perId.total_view : 'No Views'} </span>
+                            <div class="d-flex justify-content-between align-items-center"><img src="${perId.author.img}" class="card-img-top w-25 h-25 rounded-circle me-1" alt="...">
+                            <p class="text-primary text-center me-1"> Athor: ${perId.author.name ? perId.author.name : 'No Author'} </p>
+                            <p class="text-center">Views: ${perId.total_view ? perId.total_view : 'No Views'}</p>
                             </div>
-                            <button onclick="modalLoadData('${perId._id}')" type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                Show Details
-                            </button>
+                            <div class="d-flex justify-content-center"><button onclick="modalLoadData('${perId._id}')" type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Show Details
+                        </button></div>
                         </div>
                     </div>
         `
@@ -98,9 +98,9 @@ const displayModalData = (detailData) => {
     <img src="${detailData.image_url}" class="card-img-top" alt="...">
     <p>${detailData.details}</p>
     <h6>Athor Information:</h6>
-    <div><img src="${detailData.author.img}" class="card-img-top w-25 h-25 rounded-circle me-3" alt="...">
-         <span class="text-primary me-2 me-md-5"> ${detailData.author.name ? detailData.author.name : 'No data found'} </span>
-         <span> Views: ${detailData.total_view ? detailData.total_view : 'No data found'} </span>
+    <div class="d-flex justify-content-between align-items-center"><img src="${detailData.author.img}" class="card-img-top w-25 h-25 rounded-circle me-1" alt="...">
+         <p class="text-primary text-center"> ${detailData.author.name ? detailData.author.name : 'No data found'} </p>
+         <p class="text-center"> Views: ${detailData.total_view ? detailData.total_view : 'No data found'} </p>
      </div>
      <h6 class="mt-2 d-inline me-2">Published Date:</h6>
      <span>${detailData.author.published_date ? detailData.author.published_date : 'No data found'}</span>
@@ -117,3 +117,5 @@ const startSpinner = (isLoading) => {
         showSpinner.classList.add('d-none');
     }
 }
+
+// me-2 me-md-4
