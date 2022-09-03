@@ -3,7 +3,7 @@ const loadCategory = () => {
     fetch(url)
         .then(res => res.json())
         .then(data => displayCategory(data.data.news_category))
-    // .catch(error=> console.log(error));
+        .catch(error => console.log(error));
 }
 
 const displayCategory = (categories) => {
@@ -28,6 +28,7 @@ const loadCategoryId = (data) => {
     fetch(url)
         .then(res => res.json())
         .then(data => displayCategoryId(data.data))
+        .catch(error => console.log(error));
 
 }
 
@@ -46,7 +47,7 @@ const displayCategoryId = (datas) => {
         <h2>${datas.length} Items Found For Category Entertainments</h2>
         `
     }
-    console.log(datas.length)
+    // console.log(datas.length)
     const cardContainer = document.getElementById('card-container');
     cardContainer.innerHTML = ``;
     datas.forEach(perId => {
@@ -59,7 +60,7 @@ const displayCategoryId = (datas) => {
                             <h5 class="card-title">${perId.title}</h5>
                             <p class="card-text">${perId.details.slice(0, 100)} .....</p>
                             <div><img src="${perId.author.img}" class="card-img-top w-25 h-25 rounded-circle me-3" alt="...">
-                            <span class="text-primary me-5"> ${perId.author.name ? perId.author.name : 'No Author'} </span>
+                            <span class="text-primary me-2 me-md-5"> ${perId.author.name ? perId.author.name : 'No Author'} </span>
                             <span> Views: ${perId.total_view ? perId.total_view : 'No Views'} </span>
                             </div>
                             <button onclick="modalLoadData('${perId._id}')" type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -81,6 +82,7 @@ const modalLoadData = (details) => {
     fetch(url)
         .then(res => res.json())
         .then(data => displayModalData(data.data[0]))
+        .catch(error => console.log(error));
 
 }
 
