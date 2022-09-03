@@ -39,12 +39,44 @@
                 <h2 class="text-center text-warning">Q: NO:1 What are the differencess between var let and conctent?
                 </h2>
                 <h6>Differencess between var let and conctent:</h6>
-                <p>1. Var variables can be updated and re-declared within its scope; let variables can be updated but
+                <p>1. var variables can be updated and re-declared within its scope; let variables can be updated but
+                    not re-declared; const variables can neither be updated nor re-declared.</p>
                 <p>2. They are all hoisted to the top of their scope. But while var variables are initialized with
                     undefined, let and const variables are not initialized.</p>
                 <p>3. var declarations are globally scoped or function scoped while let and const are block scoped.</p>
                 <p>4. While var and let can be declared without being initialized, const must be initialized during
                     declaration.</p>
+            </div>
+            <div>
+                <h2 class="text-center text-warning">Q: NO:2 What is the differencess between regular funtion & arrow
+                    function?
+                </h2>
+                <h6>Differencess between regular function & arrow function:</h6>
+                <p>1. A programmer can get the same result as regular functions by writing a few lines of code using
+                    arrow functions.</p>
+                <p>2. Regular functions are constructible and callable. They can be called using the new keyword.But,
+                    the arrow functions are only callable and not constructible, i.e., arrow functions can never be used
+                    as constructor functions.</p>
+                <p>3. Arguments object inside the regular functions contains the list of arguments. The arrow function,
+                    on the opposite, doesn’t define arguments i.e. they do not have arguments binding.</p>
+                <p>4. Arrow functions can never have duplicate named parameters, whether in strict or non-strict mode.
+                    However, We can use duplicate named parameters for regular function in non-strict mode.</p>
+
+            </div>
+            <div>
+                <h2 class="text-center text-warning">Q: NO:3 Why we are using the template string?
+                </h2>
+                <h6>Benefits of template string:</h6>
+                <p>Template strings are a powerful feature of modern JavaScript released in ES6. It lets us
+                    insert/interpolate variables and expressions into strings without needing to concatenate like in
+                    older versions of JavaScript. It allows us to create strings that are complex and contain dynamic
+                    elements. Another great thing that comes with template strings are tags. Tags are functions that
+                    take a string and the decomposed parts of the string as parameters and are great for converting
+                    strings to different entities.</p>
+                <p>We insert a variable or expression by adding a dollar sign $ and curly braces {} into the string
+                    `${variable}`. This is much better than the alternative in old JavaScript where we had to
+                    concatenate a string like the following:</p>
+
             </div>
         </section>
     </main>
@@ -54,9 +86,3 @@
 </body>
 
 </html>
-
-
-<!-- 5) No duplicate named parameters
-Arrow functions can never have duplicate named parameters, whether in strict or non-strict mode.
-
-However, We can use duplicate named parameters for regular function in non-strict mode. -->
