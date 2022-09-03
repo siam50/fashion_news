@@ -12,7 +12,7 @@ const displayCategory = (categories) => {
     categories.forEach(category => {
         const li = document.createElement('li');
         li.innerHTML = `
-        <a onclick="loadCategoryId(${category.category_id})" class="nav-link active" aria-current="page" href="#">${category.category_name}   </a>
+        <a onclick="loadCategoryId(${category.category_id})" class="nav-link active me-md-5" aria-current="page" href="#">${category.category_name}   </a>
         `
         ul.appendChild(li);
         // console.log(category)
