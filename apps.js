@@ -15,7 +15,6 @@ const displayCategory = (categories) => {
         <a onclick="loadCategoryId(${category.category_id})" class="nav-link active me-md-5 text-light" aria-current="page" href="#">${category.category_name}   </a>
         `
         ul.appendChild(li);
-        // console.log(category)
     });
 
 }
@@ -69,7 +68,7 @@ const displayCategoryId = (datas) => {
                             <p class="card-text">${perId.details.slice(0, 100)} .....</p>
                             <div class="d-flex justify-content-between align-items-center"><img src="${perId.author.img}" class="card-img-top w-25 h-25 rounded-circle me-1" alt="...">
                             <p class="text-primary text-center me-1"> Athor: ${perId.author.name ? perId.author.name : 'No data found'} </p>
-                            <p class="text-center">Views: ${perId.total_view ? perId.total_view : 'No data found'}</p>
+                            <p class="text-center fw-semibold">Views: ${perId.total_view ? perId.total_view : 'No data found'}</p>
                             </div>
                             <div class="d-flex justify-content-center"><button onclick="modalLoadData('${perId._id}')" type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Show Details
@@ -78,7 +77,6 @@ const displayCategoryId = (datas) => {
                     </div>
         `
         cardContainer.appendChild(div);
-        // console.log(perId)
         startSpinner(false);
     });
 
@@ -95,7 +93,6 @@ const modalLoadData = (details) => {
 }
 
 const displayModalData = (detailData) => {
-    // console.log(detailData)
     const modalTitle = document.getElementById('exampleModalLabel');
     modalTitle.innerText = detailData.title;
     const modalBody = document.getElementById('modal-body');
@@ -105,7 +102,7 @@ const displayModalData = (detailData) => {
     <h6>Athor Information:</h6>
     <div class="d-flex justify-content-between align-items-center"><img src="${detailData.author.img}" class="card-img-top w-25 h-25 rounded-circle me-1" alt="...">
          <p class="text-primary text-center"> Athor: ${detailData.author.name ? detailData.author.name : 'No data found'} </p>
-         <p class="text-center"> Views: ${detailData.total_view ? detailData.total_view : 'No data found'} </p>
+         <p class="text-center fw-semibold"> Views: ${detailData.total_view ? detailData.total_view : 'No data found'} </p>
      </div>
      <h6 class="mt-2 d-inline me-2">Published Date:</h6>
      <span>${detailData.author.published_date ? detailData.author.published_date : 'No data found'}</span>
